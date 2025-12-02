@@ -5,9 +5,8 @@ tags: fpga vga verilog
 categories: demo
 ---
 
-Add a short welcome message or introduction here. Aim to get the viewer interested in what follows! Guideline: 1 or 2 sentences. 
+Hello my name is Riad and welcome to my FPGA VGA project, this is where hardware level graphics come alive without any CPU or GPU. My Demo shows how my custom verilog logic can run a real monitor and also display fully generated images in real time.
 
-I am adding a test sentence here at 13:24 on 03/12/24.
 
 ## **Template VGA Design**
 ### **Project Set-Up**
