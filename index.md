@@ -18,6 +18,8 @@ Summarise the project set-up and design flow. Include a screenshot of your own s
 ### **Template Code**
 Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s).
 ### **Simulation**
+<img width="1757" height="975" alt="image" src="https://github.com/user-attachments/assets/a1cd85be-00be-46d6-8a35-032fe078fb58" />
+
 Explain the simulation process. Reference any important details, include a well-selected screenshot of the simulation. Guideline: 1/2 short paragraphs.
 ### **Synthesis**
 Describe the synthesis and implementation processes. Consider including 1/2 useful screenshot(s). Guideline: 1/2 short paragraphs.
