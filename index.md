@@ -10,7 +10,7 @@ Hello my name is Riad and welcome to my FPGA VGA project, this is where hardware
 
 ## **Template VGA Design**
 ### **Project Set-Up**
-Summarise the project set-up and design flow. Include a screenshot of your own set-up, for example see the image of my Project Summary window below. Guideline 1 short paragraph.
+My Project was developed in Vivado using the standard FPGA design flow, it creates a new peoject also adds the verilog source files,instantiating the clock wizard IP and also applying the Basys3 constraint file for the VGA output. After i wrote and integrated the Vga timing module and top level design the project was then sysntesised, implemented and finally programmed into the board. My screenshot below the whole project overview and setup.
 <img width="976" height="586" alt="Riadoverview" src="https://github.com/user-attachments/assets/85144bbf-dcdc-4364-9654-048bd2a078ac" />
 
 
