@@ -15,7 +15,17 @@ My Project was developed in Vivado using the standard FPGA design flow, it creat
 
 
 ### **Template Code**
-Outline the structure and design of the Verilog code templates you were given. What do they do? Include reference to how a VGA interface works. Guideline: 2/3 short paragraphs, consider including screenshot(s).
+Basically the template code is splinto into three main verliogs.The first one is the **VGA Timing Module**(`VGASync`) which makes 640x480 @ 60Hz video timing. It also uses horizontal and vertical counters that cycle through every pixel and makes `hsync` and `vsync` at the correct times and outputs the current `row` and `col` values together also with a `vid_on` signal that tells you when the pixel is inside visable area.
+
+
+Now the second module is the **colour/graphics** module which was originally 'ColourStripes'. This one takes `row` and `col` as inputs and then decides what the RGB value should output for every pixel. In the template design it basically divides the screen into vertical bands and assigns colours which is a pretty useful test pattern for checking that tje timing and colour outputs are correct
+
+The final part is the **top-level module** (`VGATop`). It like connects the Basys3 clock to the Clock Wizard and instantiates `VGASync` and the colour module and then routes the `vgaRed` / `vgaGreen` and `vgaBlue` buses plus `hSync` and `vSync` out to the actual FPGA pins that are defined in the XDC file. Alltogether these modules form a fully complete VGA pipeline implemented purely in hardware.
+
+### **Simulation**
+
+To verify the template design, I first ran a behavioural simulation in Vivado. The testbench drives a clock and reset into the top-level design and lets the counters run for several frame periods. In the waveform viewer I could see the 25 MHz pixel clock, the `hsync` and `vsync` pulses at the expected intervals, and the `row`/`col` values sweeping through the visible 640×480 region. The RGB signals also changed as the pixel position moved between the different colour bands.
+
 ### **Simulation**
 <img width="1757" height="975" alt="image" src="https://github.com/user-attachments/assets/a1cd85be-00be-46d6-8a35-032fe078fb58" />
 
