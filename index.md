@@ -40,7 +40,7 @@ Describe the synthesis and implementation processes. Consider including 1/2 usef
 This Demo displays a clean set of vertical RGB bands made only in hardware which confirms that the timing controller/pixel clock and colour generator logic were all functioning correctly on the basys3. This ensured the baseline test pattern that created my own custom graphics.
 
 ## **My VGA Design Edit**
-My goal was to create a recognisable figure without using stored images, relying only on real-time combinational logic — a challenging but achievable approach inspired by online pixel-art VGA projects.![Image (4)](https://github.com/user-attachments/assets/71829fa9-2d01-4a2b-814e-88ddf2680da8)
+My goal was to create a recognisable figure without using stored images, relying only on real-time combinational logic — a challenging but achievable approach inspired by online pixel-art VGA projects.
 ![Image (3)](https://github.com/user-attachments/assets/67de0f38-a104-419a-9aa0-04bf89cb0d6b)
 ![Image (2)](https://github.com/user-attachments/assets/a14a6366-584e-47e3-95e1-3d45dd003ef5)
 
@@ -49,30 +49,16 @@ My goal was to create a recognisable figure without using stored images, relying
 To display my own images instead of the colour striped I had to modify the templates pixel generation logic inside the ColourStripes module. The original one used simple if conditions t hat just checked the col value and assigned fixed RGB values for all the vertical band. I had to replace this logic with my own sets of coordinate checks which let me draw shapes/symbols and multi coloured regions. abay controlling the RGB outputs on row/col I could build more complex designs such as the spiderman attempt or a simplified portugal flag.
 
 These changes required no external image files so everything was done in hardware by comparing pixel positions in real time. This really demonstrated how flexible the VGA pipeline really is and aslong as the timing module provides accurate row and col values any 2dShape or pattern can also be created simply by adjusting the conditional logic that drives the RGB outputs.
-<img width="1785" height="704" alt="image" src="https://github.com/user-attachments/assets/b523a240-3f83-4261-adf0-2555c5864790" />
+
 ### **Simulation**
-Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
+I verified that my design behaved correctly before programming my board I also simulated the modified CGA modules in Vivado using the Testbench. The simulation really allowed me to inspect the timing signals {hsync, vsync, row, col, and vid_on} and also confirmed that the VGA controller was still generating the correct 64-x480 timing even after i added my custom pixel drawing logic.
+
+By steping through my waveform I could see that RGB outputs changed exactly at the expected pixel coordinates which matched thee shapes I attempted to draw e.g my spiderman symbol and Portugal flag. This really helped me confirm that my region based pixel logic was correct long before loading it onto my basys3 board.
 ### **Synthesis**
 When synthesising my edited design the process was completed successfully without requiring any extra hardware resources beyond the original project because the design uses only basic combinational comparisons and like simple registers, the FGPA utilisation also remained almost identical to the template version.
 
 My implementation also ran smoothly like the timing constraints were still met and no additional warnings seemed to appear other than the VGA clock domain notes. This also confirmed that when adding more conditionall pixel logic did not have any effect on the reliability of the VGA timing pipeline or cause any routing problems on the basys3 FPGA.
+<img width="1785" height="704" alt="image" src="https://github.com/user-attachments/assets/b523a240-3f83-4261-adf0-2555c5864790" />
 ### **Demonstration**
-If you get your own design working on the Basys3 board, take a picture! Guideline: 1-2 sentences.
-
-## **More Markdown Basics**
-This is a paragraph. Add an empty line to start a new paragraph.
-
-Font can be emphasised as *Italic* or **Bold**.
-
-Code can be highlighted by using `backticks`.
-
-Hyperlinks look like this: [GitHub Help](https://help.github.com/).
-
-A bullet list can be rendered as follows:
-- vectors
-- algorithms
-- iterators
-
-Images can be added by uploading them to the repository in a /docs/assets/images folder, and then rendering using HTML via githubusercontent.com as shown in the example below.
-
-<img src="https://raw.githubusercontent.com/melgineer/fpga-vga-verilog/main/docs/assets/images/VGAPrjSrcs.png">
+My final design ran successfully on real hardware with my custom pixel generated images that displayed directly on the VGA monitor. 
+![Image (4)](https://github.com/user-attachments/assets/71829fa9-2d01-4a2b-814e-88ddf2680da8)
