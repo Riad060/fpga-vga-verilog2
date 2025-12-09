@@ -41,16 +41,21 @@ This Demo displays a clean set of vertical RGB bands made only in hardware which
 
 ## **My VGA Design Edit**
 My goal was to create a recognisable figure without using stored images, relying only on real-time combinational logic — a challenging but achievable approach inspired by online pixel-art VGA projects.![Image (4)](https://github.com/user-attachments/assets/71829fa9-2d01-4a2b-814e-88ddf2680da8)
-![Image (4)](https://github.com/user-attachments/assets/9a1f929b-bc9d-41a4-92a6-9dea883a2645)
+![Image (3)](https://github.com/user-attachments/assets/67de0f38-a104-419a-9aa0-04bf89cb0d6b)
 ![Image (2)](https://github.com/user-attachments/assets/a14a6366-584e-47e3-95e1-3d45dd003ef5)
 
- I also attempted to recreate the Portugal flag in pure Verilog splitting the screen into red and green regions and experimenting with basic geometry to approximate the crest. Although simplified, it showed how far pixel-region logic can be pushed without using any stored images.
+ I also attempted to recreate the Portugal flag in pure Verilog splitting the screen into red and green regions and experimenting with basic geometry to approximate the crest. Although simplified it showed how far pixel-region logic can be pushed without using any stored images.
 ### **Code Adaptation**
-Briefly show how you changed the template code to display a different image. Demonstrate your understanding. Guideline: 1-2 short paragraphs.
+To display my own images instead of the colour striped I had to modify the templates pixel generation logic inside the ColourStripes module. The original one used simple if conditions t hat just checked the col value and assigned fixed RGB values for all the vertical band. I had to replace this logic with my own sets of coordinate checks which let me draw shapes/symbols and multi coloured regions. abay controlling the RGB outputs on row/col I could build more complex designs such as the spiderman attempt or a simplified portugal flag.
+
+These changes required no external image files so everything was done in hardware by comparing pixel positions in real time. This really demonstrated how flexible the VGA pipeline really is and aslong as the timing module provides accurate row and col values any 2dShape or pattern can also be created simply by adjusting the conditional logic that drives the RGB outputs.
+<img width="1785" height="704" alt="image" src="https://github.com/user-attachments/assets/b523a240-3f83-4261-adf0-2555c5864790" />
 ### **Simulation**
 Show how you simulated your own design. Are there any things to note? Demonstrate your understanding. Add a screenshot. Guideline: 1-2 short paragraphs.
 ### **Synthesis**
-Describe the synthesis & implementation outputs for your design, are there any differences to that of the original design? Guideline 1-2 short paragraphs.
+When synthesising my edited design the process was completed successfully without requiring any extra hardware resources beyond the original project because the design uses only basic combinational comparisons and like simple registers, the FGPA utilisation also remained almost identical to the template version.
+
+My implementation also ran smoothly like the timing constraints were still met and no additional warnings seemed to appear other than the VGA clock domain notes. This also confirmed that when adding more conditionall pixel logic did not have any effect on the reliability of the VGA timing pipeline or cause any routing problems on the basys3 FPGA.
 ### **Demonstration**
 If you get your own design working on the Basys3 board, take a picture! Guideline: 1-2 sentences.
 
