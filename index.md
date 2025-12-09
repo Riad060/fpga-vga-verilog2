@@ -35,10 +35,16 @@ A key detail in my simulation was that the timing pulse must happen at the corre
 ### **Synthesis**
 Describe the synthesis and implementation processes. Consider including 1/2 useful screenshot(s). Guideline: 1/2 short paragraphs.
 ### **Demonstration**
-Perhaps add a picture of your demo. Guideline: 1/2 sentences.
+![Image (5)](https://github.com/user-attachments/assets/f585b64f-08bd-4ede-be71-a2b5d5cd8178)
+
+This Demo displays a clean set of vertical RGB bands made only in hardware which confirms that the timing controller/pixel clock and colour generator logic were all functioning correctly on the basys3. This ensured the baseline test pattern that created my own custom graphics.
 
 ## **My VGA Design Edit**
-Introduce your own design idea. Consider how complex/achievabble this might be or otherwise. Reference any research you do online (use hyperlinks).
+My goal was to create a recognisable figure without using stored images, relying only on real-time combinational logic — a challenging but achievable approach inspired by online pixel-art VGA projects.![Image (4)](https://github.com/user-attachments/assets/71829fa9-2d01-4a2b-814e-88ddf2680da8)
+![Image (4)](https://github.com/user-attachments/assets/9a1f929b-bc9d-41a4-92a6-9dea883a2645)
+![Image (2)](https://github.com/user-attachments/assets/a14a6366-584e-47e3-95e1-3d45dd003ef5)
+
+ I also attempted to recreate the Portugal flag in pure Verilog splitting the screen into red and green regions and experimenting with basic geometry to approximate the crest. Although simplified, it showed how far pixel-region logic can be pushed without using any stored images.
 ### **Code Adaptation**
 Briefly show how you changed the template code to display a different image. Demonstrate your understanding. Guideline: 1-2 short paragraphs.
 ### **Simulation**
