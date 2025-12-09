@@ -29,7 +29,9 @@ To verify the template design, I first ran a behavioural simulation in Vivado. T
 ### **Simulation**
 <img width="1757" height="975" alt="image" src="https://github.com/user-attachments/assets/a1cd85be-00be-46d6-8a35-032fe078fb58" />
 
-Explain the simulation process. Reference any important details, include a well-selected screenshot of the simulation. Guideline: 1/2 short paragraphs.
+To verify that my VGA was functioning correctly i had to run a behavioural simulation within the provided template modules before i had to move on to my own design. The simulation helped me to understand and observe the essential VGA timing signals like hsync/vsync/row/col and the 25MHz pixel clock. During the testbench run I checked that col counted from 0 - 639 and row counted from 0 - 479 during the active display area also confirming that the horizontal and vertical timings matched the VGA 640x480 standard. I also had to verify that the vid_on signal only went high during visible region allowing the colour generator would only drive pixels insidde the display window.
+
+A key detail in my simulation was that the timing pulse must happen at the correct positions within the frame. The simulation waveform clearly shows the short hsync pulse every line and the vsync pulse every frame whcih then confirmed the correctness of the sync pulse/front porch and back porch paramatres. This step had to be done before synthesising the design because incorrect timing would result in a blank or unstable image on your monitor
 ### **Synthesis**
 Describe the synthesis and implementation processes. Consider including 1/2 useful screenshot(s). Guideline: 1/2 short paragraphs.
 ### **Demonstration**
